@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+using namespace std;
 class Counter
 {
 public:
@@ -20,6 +22,9 @@ public:
 	void operator++(int); //Post
 	void operator--(); //Pre
 	void operator--(int); //post
+
+	//Overloded Stream insertion operators
+	friend ostream& operator<<(ostream &, const Counter);
 private:
 	int max, min, count, incrementValue, decrementValue;
 };

@@ -92,3 +92,11 @@ void Counter::operator--(int dummy) //Post
 {
 	this->operator--();
 }
+
+//Overloading stream insertion operators
+//Overloading Output Stream insertion operator
+
+ostream& operator<<(ostream &out, const Counter counterObject)
+{
+	return out << "This counter has max value: " << counterObject.max << ", This counter has minimum value: " << counterObject.min << ", and count: " << counterObject.count << endl;
+}

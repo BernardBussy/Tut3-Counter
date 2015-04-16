@@ -21,17 +21,18 @@ int main()
 	}
 	cout << "The max value is: " << counterPtr->getMax() << " and the min value is " << counterPtr->getMin() << " and the count is:" << counterPtr->getCount() << endl;
 	
-	for (int i = 0; i < 6; i++) //Test increment
-	{
-		++(*counterPtr);
-		cout << "The value of count is now: " << counterPtr->getCount() << endl;
-	}
+	//for (int i = 0; i < 6; i++) //Test increment
+	//{
+	//	++(*counterPtr);
+	//	cout << "The value of count is now: " << counterPtr->getCount() << endl;
+	//}
 
-	for (int i = 0; i < 6; i++) //Test decrement
-	{
-		--(*counterPtr);
-		cout << "The value of count is now: " << counterPtr->getCount() << endl;
-	}
+	//for (int i = 0; i < 6; i++) //Test decrement
+	//{
+	//	--(*counterPtr);
+	//	cout << "The value of count is now: " << counterPtr->getCount() << endl;
+	//}
+	cout << *(counterPtr);
 	
 	return 0;
 }
