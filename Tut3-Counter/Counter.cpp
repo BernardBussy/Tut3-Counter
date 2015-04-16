@@ -1,11 +1,13 @@
 #include "Counter.h"
 #include <stdexcept>
+#include <iostream>
 using namespace std;
 
 Counter::Counter(int mx, int mn)
 {
 	setMax(mx);
 	setMin(mn);
+	count = min;
 }
 
 
@@ -31,7 +33,7 @@ int Counter::getMax()
 ////Set Minimum Value for count
 void Counter::setMin(int mn)
 {
-	if ((mn >= 0) && (mn < max)) min = mn;
+	if ((mn >= 0) && (mn < max)) { min = mn; count = min;}
 	else
 	{
 		throw invalid_argument("minimun needs to be 0 or greater and less than max");
@@ -41,9 +43,40 @@ int Counter::getMin()
 {
 	return min;
 }
-//
+
+int Counter::getCount()
+{
+	return count;
+}
+
 ////Overloaded Operators for increment and decrement
-//void operator++(); //Pre
-//void operator++(int); //Post
-//void operator--(); //Pre
-//void operator--(int); //Post
+void Counter::operator++() //Pre
+{
+	if (count == max)
+	{
+		count = min;
+		cout << "The value of count was equal to max, resetting counter..." << endl;
+	}
+	else count++;
+
+}
+
+void Counter::operator++(int dummy) //post
+{
+	this->operator++();
+}
+
+void Counter::operator--() //Pre
+{
+	if (count == min)
+	{
+		count = max;
+		cout << "The value of count was equal to min, resetting counter" << endl;
+	}
+	else count--;
+}
+
+void Counter::operator--(int dummy) //Post
+{
+	this->operator--();
+}

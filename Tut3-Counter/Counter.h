@@ -11,13 +11,14 @@ public:
 	int getMax();		
 	void setMin(int);  //Set Minimum Value for count
 	int getMin();
+	int getCount(); //Return count value
 
 	////Overloaded Operators for increment and decrement
-	//void operator++(); //Pre
-	//void operator++(int); //Post
-	//void operator--(); //Pre
-	//void operator--(int); //Post
+	void operator++(); //Pre
+	void operator++(int); //Post
+	void operator--(); //Pre
+	void operator--(int); //post
 private:
-	int max, min;
+	int max, min, count;
 };
 
