@@ -12,6 +12,8 @@ int main()
 	{
 		counterPtr->setMax(15);
 		counterPtr->setMin(12);
+		counterPtr->setDec(2);
+		counterPtr->setInc(3);
 	}
 	catch (invalid_argument error)
 	{

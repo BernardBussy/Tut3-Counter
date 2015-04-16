@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-Counter::Counter(int mx, int mn)
+Counter::Counter(int mx, int mn, int inc, int dec)
 {
 	setMax(mx);
 	setMin(mn);
@@ -30,7 +30,7 @@ int Counter::getMax()
 {
 	return max;
 }
-////Set Minimum Value for count
+//Set Minimum Value for count
 void Counter::setMin(int mn)
 {
 	if ((mn >= 0) && (mn < max)) { min = mn; count = min;}
@@ -43,21 +43,33 @@ int Counter::getMin()
 {
 	return min;
 }
-
+//Get method for count
 int Counter::getCount()
 {
 	return count;
 }
 
+//Set Methods for incrementValue and decrementValue
+void Counter::setInc(int inc)
+{
+	if ((inc > 0) && (inc <= 3))  incrementValue = inc;
+	else throw invalid_argument("Invalid Icrement Value");
+}
+void Counter::setDec(int dec)
+{
+	if ((dec > 0) && (dec <= 2)) decrementValue = dec;
+	else throw invalid_argument("Invalid Decrement Value");
+}
+
 ////Overloaded Operators for increment and decrement
 void Counter::operator++() //Pre
 {
-	if (count == max)
+	if (count+incrementValue > max)
 	{
 		count = min;
-		cout << "The value of count was equal to max, resetting counter..." << endl;
+		cout << "The value of count has exceeded max, resetting counter..." << endl;
 	}
-	else count++;
+	else count+= incrementValue;
 
 }
 
@@ -68,12 +80,12 @@ void Counter::operator++(int dummy) //post
 
 void Counter::operator--() //Pre
 {
-	if (count == min)
+	if (count-decrementValue < min)
 	{
 		count = max;
-		cout << "The value of count was equal to min, resetting counter" << endl;
+		cout << "The value of count has gone below min, resetting counter" << endl;
 	}
-	else count--;
+	else count-=decrementValue;
 }
 
 void Counter::operator--(int dummy) //Post
