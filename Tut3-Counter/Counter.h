@@ -24,7 +24,8 @@ public:
 	void operator--(int); //post
 
 	//Overloded Stream insertion operators
-	friend ostream& operator<<(ostream &, const Counter);
+	friend void operator<<(ostream &, const Counter);
+	friend void operator>>(istream &, Counter);
 private:
 	int max, min, count, incrementValue, decrementValue;
 };

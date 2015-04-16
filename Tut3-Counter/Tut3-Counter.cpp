@@ -32,6 +32,7 @@ int main()
 	//	--(*counterPtr);
 	//	cout << "The value of count is now: " << counterPtr->getCount() << endl;
 	//}
+	cin >> *(counterPtr);
 	cout << *(counterPtr);
 	
 	return 0;

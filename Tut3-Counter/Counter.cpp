@@ -1,6 +1,7 @@
 #include "Counter.h"
 #include <stdexcept>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 Counter::Counter(int mx, int mn, int inc, int dec)
@@ -95,8 +96,21 @@ void Counter::operator--(int dummy) //Post
 
 //Overloading stream insertion operators
 //Overloading Output Stream insertion operator
-
-ostream& operator<<(ostream &out, const Counter counterObject)
+void operator<<(ostream &out, const Counter counterObject)
 {
-	return out << "This counter has max value: " << counterObject.max << ", This counter has minimum value: " << counterObject.min << ", and count: " << counterObject.count << endl;
+	out << "This counter has max value: " << counterObject.max << ", This counter has minimum value: " << counterObject.min << ", and count: " << counterObject.count << endl;
+}
+
+//Overloading Input Stream insertion operator
+void operator>>(istream &in, Counter counterObject)
+{
+	int temp;
+	cout << "Enter the Max Value ===> ";
+	in >> counterObject.max;
+	cout << "Enter the Min Value ===> ";
+	in >> counterObject.min;
+	cout << "Enter the Increment Value ===> ";
+	in >> counterObject.incrementValue;
+	cout << "Enter the Decrement Value ===> ";
+	in >> counterObject.decrementValue;
 }
